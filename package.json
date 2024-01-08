@@ -1,0 +1,21 @@
+{
+  "name": "remark-imgattr",
+  "version": "1.0.0",
+  "description": "add attributes to remark imgs by adding them inside curly brackets like ![](){}",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OliverSpeir/remark-imgattr.git"
+  },
+  "keywords": [
+    "remark",
+    "image",
+    "attributes"
+  ],
+  "author": "Oliver Speir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OliverSpeir/remark-imgattr/issues"
+  },
+  "homepage": "https://github.com/OliverSpeir/remark-imgattr#readme"
+}
