@@ -2,7 +2,7 @@
 
 Remark plugin to add attributes to markdown images 
 
-Add `{attribute1:value,attribute2:value}` after an image and those attributes will be applied to the hProperties of that image node
+Add `(attribute1:value,attribute2:value)` after an image and those attributes will be applied to the hProperties of that image node
 
 Should support spacing however you prefer, attributes like style and sizes need to be in quotes
 
@@ -26,25 +26,28 @@ export default defineConfig({
 ## Example
 
 ```md
-![alt text](path){ width: 300 }
+![alt text](path)( width: 300 )
 ```
 
 ```md
-![alt text](path){width:300,height:150}
+![alt text](path)(width:300,height:150)
 ```
 
 ## Support for Astro Specific Syntax
 
 ```md
-![](path){ width:300, widths:[300,600], sizes:"(min-width: 600px) 600w, 300w" }
+![](path)( width:300, widths:[300,600], sizes:"(min-width: 600px) 600w, 300w" )
 ```
 
 ```md
-![](path){ quality: 100 }
+![](path)(quality:100)
 ```
 
 ## Pass styles 
 
 ```md
-![Style](path){style:'border: 1px solid #ccc; padding: 10px;', width:100}
+![Style](path)(style:'border: 1px solid #ccc; padding: 10px;', width:100)
 ```
+
+> [!WARNING]
+> 1.0.3 changes to syntax from {attribute:value} to (attribute:value) for compatibility with mdx

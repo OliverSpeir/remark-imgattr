@@ -1,6 +1,6 @@
 export default function imgAttr() {
   function isAttributeString(str) {
-    return str && str.trim().startsWith("{") && str.trim().endsWith("}");
+    return str && str.trim().startsWith("(") && str.trim().endsWith(")");
   }
 
   function parseAttributes(attrString) {
@@ -47,7 +47,7 @@ export default function imgAttr() {
           attributes[currentKey] = parseValue(currentValue.trim());
           currentKey = "";
           currentValue = "";
-        } else if (char !== "," && char !== " " && char !== "}") {
+        } else if (char !== "," && char !== " " && char !== ")") {
           currentValue += char;
         }
       }
@@ -57,7 +57,6 @@ export default function imgAttr() {
     if (currentKey && currentValue) {
       attributes[currentKey] = parseValue(currentValue.trim());
     }
-
     return attributes;
   }
 
