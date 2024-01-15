@@ -14,7 +14,6 @@ import imgAttr from 'remark-imgattr';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
 	markdown: {
 		remarkPlugins:[imgAttr]
 	}
