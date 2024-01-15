@@ -2,6 +2,10 @@
 
 Remark plugin to add attributes to markdown images 
 
+Add `{attribute1:value,attribute2:value}` after an image and those attributes will be applied to the hProperties of that image node
+
+Should support spacing however you prefer, attributes like style and sizes need to be in quotes
+
 ## Example
 
 ```md
@@ -9,13 +13,13 @@ Remark plugin to add attributes to markdown images
 ```
 
 ```md
-![alt text](path){ width: 300, height: 150 }
+![alt text](path){width:300,height:150}
 ```
 
 ## Support for Astro Specific Syntax
 
 ```md
-![](path){ width: 300, widths: [300,600], sizes: "(min-width: 600px) 600w, 300w" }
+![](path){ width:300, widths:[300,600], sizes:"(min-width: 600px) 600w, 300w" }
 ```
 
 ```md
@@ -25,5 +29,5 @@ Remark plugin to add attributes to markdown images
 ## Pass styles 
 
 ```md
-![Style](path){ style: "border: 1px solid #ccc; padding: 10px;", width: 100 }
+![Style](path){style:'border: 1px solid #ccc; padding: 10px;', width:100}
 ```
