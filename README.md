@@ -6,6 +6,21 @@ Add `{attribute1:value,attribute2:value}` after an image and those attributes wi
 
 Should support spacing however you prefer, attributes like style and sizes need to be in quotes
 
+## Usage in Astro 
+
+```js
+import { defineConfig } from 'astro/config';
+import imgAttr from 'remark-imgattr';
+
+// https://astro.build/config
+export default defineConfig({
+	site: 'https://example.com',
+	markdown: {
+		remarkPlugins:[imgAttr]
+	}
+});
+```
+
 ## Example
 
 ```md
