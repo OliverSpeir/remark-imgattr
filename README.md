@@ -6,6 +6,9 @@ Add `{attribute1:value,attribute2:value}` after an image and those attributes wi
 
 Should support spacing however you prefer, attributes like style and sizes need to be in quotes
 
+[!NOTE]
+If using [remark-unwrap-images](https://github.com/remarkjs/remark-unwrap-images) run this plugin first
+
 ## Usage in Astro 
 
 ```js
