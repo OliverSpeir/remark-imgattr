@@ -49,5 +49,8 @@ export default defineConfig({
 ![Style](path)(style:'border: 1px solid #ccc; padding: 10px;', width:100)
 ```
 
-> [!WARNING]
-> 1.0.3 changes to syntax from {attribute:value} to (attribute:value) for compatibility with mdx
+> [!NOTE]
+> 1.0.3 changes to syntax from {attribute:value} to (attribute:value) for compatibility with mdx, if you prefer the {} syntax you can use 1.0.2 it is identical functionality
+
+> [!NOTE]
+> As of Astro 4.2.0 the astro specific syntax only works for .md files, MDX support hopefully coming soon
