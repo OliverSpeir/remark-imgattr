@@ -1,13 +1,15 @@
 # Remark Image Attributes
 
-Remark plugin to add attributes to markdown images 
+Remark plugin to add attributes to markdown and mdx images
 
-Add `{attribute1:value,attribute2:value}` after an image and those attributes will be applied to the hProperties of that image node
+Adds attributes to images by extending the default syntax like`![](path)(attribute1: value, attribute2: value)`. Attributes will be applied to the hProperties of that image node.
 
-Should support spacing however you prefer, attributes like style and sizes need to be in quotes
 
-[!NOTE]
-If using [remark-unwrap-images](https://github.com/remarkjs/remark-unwrap-images) run this plugin first
+> [!NOTE]
+>
+> Should support almost any syntax although `sizes` and any attribute with commas in it needs to be inside quotes.
+>
+> If using [remark-unwrap-images](https://github.com/remarkjs/remark-unwrap-images) run this plugin first
 
 ## Usage in Astro 
 
@@ -25,26 +27,17 @@ export default defineConfig({
 
 ## Example
 
-```md
-![alt text](path){ width: 300 }
-```
 
 ```md
-![alt text](path){width:300,height:150}
+![Style](path)(style: border: 1px solid #ccc; padding: 10px;, width:100)
+
+![alt text](path)(width: 300, height: 150)
 ```
 
 ## Support for Astro Specific Syntax
 
 ```md
-![](path){ width:300, widths:[300,600], sizes:"(min-width: 600px) 600w, 300w" }
-```
+![](path)( width:300, widths:[300,600], sizes:"(min-width: 600px) 600w, 300w" )
 
-```md
-![](path){ quality: 100 }
-```
-
-## Pass styles 
-
-```md
-![Style](path){style:'border: 1px solid #ccc; padding: 10px;', width:100}
+![](path)(quality:100)
 ```

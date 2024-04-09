@@ -1,8 +1,11 @@
 declare module 'remark-imgattr' {
     /**
-     * Main exported function of the plugin.
-     * Since it integrates with Remark, it returns a transformer function
-     * that operates on a Remark AST (Abstract Syntax Tree).
+     * A Remark plugin to enhance markdown image syntax with additional attributes.
+     * This plugin allows passing attributes to markdown image syntax via parentheses `()` immediately following the default syntax.
+     *
+     * For example, an image with custom styles and width could be written as:
+     * `![alt text](imagePath)(style:"border: 1px solid #ccc;", width:100)`
+     * 
      */
     export default function imgAttr(): (tree: any) => void;
 }
