@@ -72,7 +72,6 @@ export default function imgAttr() {
     if (currentKey || currentValue.trim()) {
       attributes[currentKey] = interpretValue(currentValue.trim());
     }
-    console.log(attributes)
     return attributes;
   }
 
