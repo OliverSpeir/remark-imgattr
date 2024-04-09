@@ -1,6 +1,6 @@
 {
   "name": "remark-imgattr",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "add attributes to markdown and mdx images like ![alt](path)(attribute: value)",
   "main": "index.js",
   "type": "module",
