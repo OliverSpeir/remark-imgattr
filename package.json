@@ -1,7 +1,7 @@
 {
   "name": "remark-imgattr",
-  "version": "1.0.3",
-  "description": "add attributes to remark imgs by adding them inside curly brackets like ![](){}",
+  "version": "1.0.4",
+  "description": "add attributes to markdown and mdx images like ![alt](path)(attribute: value)",
   "main": "index.js",
   "type": "module",
   "types": "types.d.ts",
@@ -12,7 +12,9 @@
   "keywords": [
     "remark",
     "image",
-    "attributes"
+    "attributes",
+    "markdown",
+    "mdx"
   ],
   "author": "Oliver Speir",
   "license": "MIT",
