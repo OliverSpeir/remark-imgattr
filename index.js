@@ -99,7 +99,7 @@ export default function imgAttr() {
             return JSON.parse(value);
         }
     } catch (e) {
-        // Error handling could be implemented here if needed.
+        // treat it as a string if JSON parsing fails
     }
 
     return value;

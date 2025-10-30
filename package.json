@@ -5,6 +5,10 @@
   "main": "index.js",
   "type": "module",
   "types": "types.d.ts",
+  "scripts": {
+    "test": "node --test",
+    "test:integration": "node --test test/integration/**/*.test.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OliverSpeir/remark-imgattr.git"
@@ -21,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/OliverSpeir/remark-imgattr/issues"
   },
-  "homepage": "https://github.com/OliverSpeir/remark-imgattr#readme"
+  "homepage": "https://github.com/OliverSpeir/remark-imgattr#readme",
+  "devDependencies": {
+    "node-html-parser": "^6.1.13",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5"
+  }
 }
