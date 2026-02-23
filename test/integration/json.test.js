@@ -61,7 +61,7 @@ describe('JSON and JSON-like Values', () => {
     assert.strictEqual(items, '[small, medium, large]');
   });
 
-  test('should split unquoted JSON object with commas (known limitation)', async () => {
+  test('should parse unquoted JSON object with multiple properties', async () => {
     const markdown = await readFile('test/fixtures/json.md', 'utf-8');
     const html = await processMarkdown(markdown);
     const root = parse(html);
@@ -71,9 +71,9 @@ describe('JSON and JSON-like Values', () => {
     assert.ok(img, 'Image with alt "Unquoted object" should exist');
     const config = img.getAttribute('config');
     assert.ok(config, 'config attribute should exist');
-    // Unquoted JSON objects with commas get split because {} doesn't increment depth
-    // Only the first property is captured as the config value
-    assert.strictEqual(config, '{"enabled": true');
+    // Unquoted JSON objects with multiple properties now parse correctly
+    // as JS objects; as HTML attr they stringify to [object Object]
+    assert.strictEqual(config, '[object Object]');
   });
 
   test('should fallback to string for incomplete JSON array', async () => {

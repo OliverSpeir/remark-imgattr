@@ -55,8 +55,8 @@ export default function imgAttr({ defaults = {} } = {}) {
       } else if (inQuotes && ((char === '"' && quoteChar === '"') || (char === "'" && quoteChar === "'") || (char === '”' && quoteChar === '“') || (char === '’' && quoteChar === '‘'))) {
         inQuotes = false;
       } else if (!inQuotes) {
-        if (char === '(' || char === '[') depth++;
-        else if (char === ')' || char === ']') depth--;
+        if (char === '(' || char === '[' || char === '{') depth++;
+        else if (char === ')' || char === ']' || char === '}') depth--;
 
         if (char === ',' && depth === 0) {
           if (currentKey) {

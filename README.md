@@ -39,15 +39,6 @@ Commas inside `[]` arrays and `()` nested structures are handled automatically. 
 ![](path)(widths: [300, 600, 900])
 ```
 
-JSON objects with multiple properties must also be quoted, since `{}` is not depth-tracked:
-
-```md
-<!-- correct: quoted -->
-![](path)(config: "{\"a\": 1, \"b\": 2}")
-
-<!-- incorrect: splits on the comma, only first property is captured -->
-![](path)(config: {"a": 1, "b": 2})
-```
 
 ## Usage in Astro
 
