@@ -6,12 +6,50 @@ Adds attributes to images by extending the default syntax like`![](path)(attribu
 
 
 > [!NOTE]
->
-> Should support almost any syntax although `sizes` and any attribute with commas in it needs to be inside quotes.
->
 > If using [remark-unwrap-images](https://github.com/remarkjs/remark-unwrap-images) run this plugin first
 
-## Usage in Astro 
+## Syntax
+
+```md
+![alt](path)(key: value, key: value, ...)
+```
+
+Attributes are a comma-separated list of `key: value` pairs in a second set of parentheses after the image.
+
+| Value type | Example | Notes |
+|---|---|---|
+| String | `class: hero` | No quotes needed for simple strings |
+| Number | `width: 300` | Integers and decimals supported |
+| Boolean | `defer: true` | `true` = attribute present, `false` = attribute omitted |
+| Quoted string | `title: "my photo"` | `"` `'` `"` `'` all supported; backslash escape with `\` |
+| CSS value | `style: border: 1px solid red;` | Colons in values are fine |
+| Array | `widths: [300, 600, 900]` | Parsed as a JS array — for framework component props |
+| Nested object | `data: (x: 100, y: 200)` | Parsed as a JS object — for framework component props |
+| JSON object | `metadata: {"key": "val"}` | Parsed as a JS object — for framework component props |
+
+### Quoting
+
+Commas inside `[]` arrays and `()` nested structures are handled automatically. Plain string values that contain commas must be quoted, otherwise the value will be silently truncated at the first comma:
+
+```md
+<!-- correct: quoted string value containing a comma -->
+![](path)(sizes: "(min-width: 600px) 600w, 300w")
+
+<!-- correct: commas inside [] are fine without quotes -->
+![](path)(widths: [300, 600, 900])
+```
+
+JSON objects with multiple properties must also be quoted, since `{}` is not depth-tracked:
+
+```md
+<!-- correct: quoted -->
+![](path)(config: "{\"a\": 1, \"b\": 2}")
+
+<!-- incorrect: splits on the comma, only first property is captured -->
+![](path)(config: {"a": 1, "b": 2})
+```
+
+## Usage in Astro
 
 ```js
 import { defineConfig } from 'astro/config';
