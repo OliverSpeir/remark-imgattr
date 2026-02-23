@@ -25,6 +25,26 @@ export default defineConfig({
 });
 ```
 
+### Setting default attributes
+
+You can pass default attributes that will apply to all markdown and mdx images:
+
+```js
+import { defineConfig } from 'astro/config';
+import imgAttr from 'remark-imgattr';
+
+// https://astro.build/config
+export default defineConfig({
+	markdown: {
+		remarkPlugins:[
+			[imgAttr, { defaults: { width: 700, format: 'avif' } }],
+		],
+	},
+});
+```
+
+If an image specifies the same attributes as `defaults`, the image’s value for that attribute will be used instead of the default value.
+
 ## Example
 
 
