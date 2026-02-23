@@ -1,8 +1,9 @@
 /**
  * Plugin to parse and transform image attributes in a markdown abstract syntax tree.
+ * @param {{ defaults?: Record<string, any> | undefined }} [options] - Optional configuration object.
  * @returns {Function} A transformer function to apply on the syntax tree.
  */
-export default function imgAttr() {
+export default function imgAttr({ defaults = {} } = {}) {
 
   /**
    * Checks if a string is a valid attribute string.
@@ -19,9 +20,14 @@ export default function imgAttr() {
    * @returns {Object} The parsed attributes as an object.
    */
   function parseAttributes(attrString) {
+    const attributes = { ...defaults };
+
+    if (!isAttributeString(attrString)) {
+      return attributes;
+    }
+
     attrString = attrString.slice(1, -1).trim(); // Remove the leading and trailing parentheses.
 
-    const attributes = {};
     let currentKey = '';
     let currentValue = '';
     let inQuotes = false;
@@ -152,11 +158,9 @@ export default function imgAttr() {
             j++;
           }
 
-          if (isAttributeString(attributeString)) {
-            const attrs = parseAttributes(attributeString);
-            currentNode.data.hProperties = attrs;
-            node.children.splice(i + 1, j - i);
-          }
+          const attrs = parseAttributes(attributeString);
+          currentNode.data.hProperties = attrs;
+          node.children.splice(i + 1, j - i);
         }
 
         if (currentNode.children && currentNode.children.length) {
