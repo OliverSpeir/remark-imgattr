@@ -19,12 +19,12 @@ Attributes are a comma-separated list of `key: value` pairs in a second set of p
 |---|---|---|
 | String | `class: hero` | No quotes needed for simple strings |
 | Number | `width: 300` | Integers and decimals supported |
-| Boolean | `defer: true` | `true` = attribute present, `false` = attribute omitted |
+| Boolean | `defer: true` | Passed as a boolean to `hProperties` |
 | Quoted string | `title: "my photo"` | `"` `'` `"` `'` all supported; backslash escape with `\` |
 | CSS value | `style: border: 1px solid red;` | Colons in values are fine |
-| Array | `widths: [300, 600, 900]` | Parsed as a JS array — for framework component props |
-| Nested object | `data: (x: 100, y: 200)` | Parsed as a JS object — for framework component props |
-| JSON object | `metadata: {"key": "val"}` | Parsed as a JS object — for framework component props |
+| Array | `widths: [300, 600, 900]` | Parsed as a JS array |
+| Nested object | `data: (x: 100, y: 200)` | Parsed as a JS object |
+| JSON object | `metadata: {"key": "val"}` | Parsed as a JS object |
 
 ### Quoting
 
